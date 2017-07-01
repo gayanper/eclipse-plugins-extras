@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.workbench.texteditor.quickDiffReferenceProvider">
+      <referenceprovider
+            class="org.gap.eclipse.plugins.extras.core.quickdiff.ProjectBaseReferenceProvider"
+            id="eclipse-plugins-extras-core.projectbasereferenceprovider"
+            label="Project Base">
+      </referenceprovider>
+   </extension>
+
+</plugin>
