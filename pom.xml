@@ -28,4 +28,5 @@
 	      <url>http://download.eclipse.org/releases/oxygen</url>
 	   </repository>
   </repositories>
+  <name>Eclipse Plugins Extras</name>
 </project>
