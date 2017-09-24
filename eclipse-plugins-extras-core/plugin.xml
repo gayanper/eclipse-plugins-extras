@@ -9,5 +9,39 @@
             label="Project Base">
       </referenceprovider>
    </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?
+after=org.eclipse.ui.CloseUnrelatedProjectsAction">
+         <command
+               commandId="eclipse-plugins-extras-core.projects.CloseNested"
+               label="Close Projects"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <instanceof
+                           value="org.eclipse.core.resources.IProject">
+                     </instanceof>
+                  </iterate>
+               </with>
+            </visibleWhen>
+  	     </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.gap.eclipse.plugins.extras.core.project.CloseNestedProjectsHandler"
+            id="eclipse-plugins-extras-core.projects.CloseNested"
+            name="Close Nested Projects">
+      </command>
+   </extension>
 
 </plugin>

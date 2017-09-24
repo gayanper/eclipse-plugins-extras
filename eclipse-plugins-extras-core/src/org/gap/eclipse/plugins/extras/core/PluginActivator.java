@@ -1,5 +1,6 @@
 package org.gap.eclipse.plugins.extras.core;
 
+import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -26,5 +27,9 @@ public class PluginActivator extends AbstractUIPlugin {
 
 	public static PluginActivator getDefault() {
 		return instance;
+	}
+
+	public void log(int level, String message, Throwable e) {
+		getLog().log(new Status(level, PluginActivator.PLUGIN_ID, message, e));
 	}
 }
