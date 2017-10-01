@@ -13,12 +13,10 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?
-after=org.eclipse.ui.CloseUnrelatedProjectsAction">
-         <command
-               commandId="eclipse-plugins-extras-core.projects.CloseNested"
-               label="Close Projects"
-               style="push">
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=org.eclipse.ui.CloseUnrelatedProjectsAction">
+         <menu
+               id="eclipse-plugins-extras-core.projects"
+               label="Project Extras">
             <visibleWhen
                   checkEnabled="false">
                <with
@@ -32,7 +30,19 @@ after=org.eclipse.ui.CloseUnrelatedProjectsAction">
                   </iterate>
                </with>
             </visibleWhen>
-  	     </command>
+	         <command
+                commandId="eclipse-plugins-extras-core.projects.CloseNested"
+                id="eclipse-plugins-extras-core.projects.CloseNested"
+                label="Close Hierarchy"
+                style="push">
+	         </command>
+          <command
+                commandId="eclipse-plugins-extras-core.projects.DeleteNested"
+                id="eclipse-plugins-extras-core.projects.DeleteNested"
+                label="Delete Hierarchy"
+                style="push">
+          </command>
+         </menu>
       </menuContribution>
    </extension>
    <extension
@@ -40,7 +50,12 @@ after=org.eclipse.ui.CloseUnrelatedProjectsAction">
       <command
             defaultHandler="org.gap.eclipse.plugins.extras.core.project.CloseNestedProjectsHandler"
             id="eclipse-plugins-extras-core.projects.CloseNested"
-            name="Close Nested Projects">
+            name="Close Hierarchy">
+      </command>
+      <command
+            defaultHandler="org.gap.eclipse.plugins.extras.core.project.DeleteNestedProjectsHandler"
+            id="eclipse-plugins-extras-core.projects.DeleteNested"
+            name="Delete Hierarchy">
       </command>
    </extension>
 
