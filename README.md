@@ -7,6 +7,14 @@ Extra extensions for eclipse IDE to make it more usable.
 - Closing selected project and its hierarchy 
 - Deleting selected project and its hierarchy 
 
+### Project Quick Diff
+
+Support project base quick diff which will change the quick diff based on project's Team Provider.
+![](./quick-diff.png)
+#### Supported Team Providers
+- Subclipse
+- EGit
+
 ## Update site
 Currently this plugin only offers nightly updates. There will be stable updates soon.
 ### Nightly
