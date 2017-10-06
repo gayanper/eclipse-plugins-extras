@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.gap.eclipse.plugins.extras</groupId>
-    <artifactId>eclipse-plugins-extras</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-  </parent>
-  <groupId>org.gap.eclipse.plugins.extras</groupId>
-  <artifactId>eclipse-plugins-extras-updatesite</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>eclipse-repository</packaging>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.gap.eclipse.plugins.extras</groupId>
+		<artifactId>eclipse-plugins-extras</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<groupId>org.gap.eclipse.plugins.extras</groupId>
+	<artifactId>eclipse-plugins-extras-updatesite</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>eclipse-repository</packaging>
+
+	<profiles>
+		<profile>
+			<id>upload</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.4.0</version>
+						<executions>
+							<execution>
+								<id>upload-content</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>${basedir}/upload.sh</executable>
+									<commandlineArgs>${env.bintray_api_key}
+										${project.build.directory}/${project.artifactId}-${project.version}.zip
+										${site-version}</commandlineArgs>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<properties>
+		<site-version>nightly</site-version>
+	</properties>
 </project>
