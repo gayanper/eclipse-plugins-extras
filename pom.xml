@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.gap.eclipse.plugins.extras</groupId>
-  <artifactId>eclipse-plugins-extras</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-    <module>eclipse-plugins-extras-core</module>
-    <module>eclipse-plugins-extras-feature</module>
-    <module>eclipse-plugins-extras-imports</module>
-    <module>eclipse-plugins-extras-updatesite</module>
-  </modules>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-maven-plugin</artifactId>
-        <version>1.0.0</version>
-        <extensions>true</extensions>
-      </plugin>
-    </plugins>
-  </build>
-  <repositories>
-	  <repository>
-	      <id>p2</id>
-	      <layout>p2</layout>
-	      <url>http://download.eclipse.org/releases/oxygen</url>
-	   </repository>
-  </repositories>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.gap.eclipse.plugins.extras</groupId>
+	<artifactId>eclipse-plugins-extras</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>eclipse-plugins-extras-core</module>
+		<module>eclipse-plugins-extras-feature</module>
+		<module>eclipse-plugins-extras-imports</module>
+		<module>eclipse-plugins-extras-updatesite</module>
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>p2</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/oxygen</url>
+		</repository>
+	</repositories>
 </project>
