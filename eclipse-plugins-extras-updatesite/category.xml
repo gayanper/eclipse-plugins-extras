@@ -3,5 +3,8 @@
    <feature url="features/org.gap.eclipse.plugins.extras.feature_1.0.0.qualifier.jar" id="org.gap.eclipse.plugins.extras.feature" version="1.0.0.qualifier">
       <category name="org.gap.eclipse.plugins.extras"/>
    </feature>
+   <feature url="features/org.gap.eclipse.plugins.extras.imports.feature_1.0.0.qualifier.jar" id="org.gap.eclipse.plugins.extras.imports.feature" version="1.0.0.qualifier">
+      <category name="org.gap.eclipse.plugins.extras"/>
+   </feature>
    <category-def name="org.gap.eclipse.plugins.extras" label="Gap Extras"/>
 </site>

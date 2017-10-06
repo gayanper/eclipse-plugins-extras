@@ -12,6 +12,7 @@
 		<module>eclipse-plugins-extras-feature</module>
 		<module>eclipse-plugins-extras-imports</module>
 		<module>eclipse-plugins-extras-updatesite</module>
+		<module>eclipse-plugins-extras-imports-feature</module>
 	</modules>
 	<build>
 		<plugins>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.gap.eclipse.plugins.extras.feature"
-      label="Eclipse Plugins Extras Feature"
+      id="org.gap.eclipse.plugins.extras.imports.feature"
+      label="Eclipse Plugins Extras Imports"
       version="1.0.0.qualifier">
 
    <description url="http://www.example.com/description">
@@ -17,7 +17,7 @@
    </license>
 
    <plugin
-         id="org.gap.eclipse.plugins.extras.core"
+         id="eclipse-plugins-extras-imports"
          download-size="0"
          install-size="0"
          version="0.0.0"
