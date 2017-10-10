@@ -41,6 +41,6 @@
 		</profile>
 	</profiles>
 	<properties>
-		<site-version>nightly</site-version>
+		<site-version>stable</site-version>
 	</properties>
 </project>
