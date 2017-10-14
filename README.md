@@ -24,6 +24,9 @@ Adds java static imports for
 
 
 ## Update site
-Currently this plugin only offers nightly updates. There will be stable updates soon.
+Stable and Nightly update sites
+### Stable
+[https://dl.bintray.com/gayanper/p2/eclipse-plugins-extras/stable/](https://dl.bintray.com/gayanper/p2/eclipse-plugins-extras/stable/)
+
 ### Nightly
 [https://dl.bintray.com/gayanper/p2/eclipse-plugins-extras/nightly/](https://dl.bintray.com/gayanper/p2/eclipse-plugins-extras/nightly/)
