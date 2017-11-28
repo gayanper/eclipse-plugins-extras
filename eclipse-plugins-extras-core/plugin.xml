@@ -13,7 +13,7 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=org.eclipse.ui.CloseUnrelatedProjectsAction">
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
          <menu
                id="eclipse-plugins-extras-core.projects"
                label="Project Extras">
@@ -35,13 +35,48 @@
                 id="eclipse-plugins-extras-core.projects.CloseNested"
                 label="Close Hierarchy"
                 style="push">
+	             <visibleWhen checkEnabled="false">
+	               <with variable="activeMenuSelection">
+	               	<iterate>
+	              		<test
+	                      property="org.eclipse.core.resources.open" value="true">
+	              		</test>	
+	               	</iterate>
+	               </with>
+	                   
+	             </visibleWhen>
 	         </command>
-          <command
+	         <command
                 commandId="eclipse-plugins-extras-core.projects.DeleteNested"
                 id="eclipse-plugins-extras-core.projects.DeleteNested"
                 label="Delete Hierarchy"
                 style="push">
-          </command>
+	             <visibleWhen checkEnabled="false">
+	               <with variable="activeMenuSelection">
+	               	<iterate>
+	              		<test
+	                      property="org.eclipse.core.resources.open" value="true">
+	              		</test>	
+	               	</iterate>
+	               </with>
+	                   
+	             </visibleWhen>
+    	     </command>
+	         <command
+                commandId="eclipse-plugins-extras-core.projects.OpenNested"
+                id="eclipse-plugins-extras-core.projects.OpenNested"
+                label="Open Hierarchy"
+                style="push">
+	             <visibleWhen checkEnabled="false">
+	               <with variable="activeMenuSelection">
+	               	<iterate>
+	              		<test
+	                      property="org.eclipse.core.resources.open" value="false">
+	              		</test>	
+	               	</iterate>
+	               </with>
+	             </visibleWhen>
+    	     </command>
          </menu>
       </menuContribution>
    </extension>
@@ -56,6 +91,11 @@
             defaultHandler="org.gap.eclipse.plugins.extras.core.project.DeleteNestedProjectsHandler"
             id="eclipse-plugins-extras-core.projects.DeleteNested"
             name="Delete Hierarchy">
+      </command>
+      <command
+            defaultHandler="org.gap.eclipse.plugins.extras.core.project.OpenNestedProjectsHandler"
+            id="eclipse-plugins-extras-core.projects.OpenNested"
+            name="Open Hierarchy">
       </command>
    </extension>
 
