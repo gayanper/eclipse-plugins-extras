@@ -1,32 +1,22 @@
 package org.gap.eclipse.plugins.extras.core.project;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.actions.DeleteResourceAction;
-import org.eclipse.ui.handlers.HandlerUtil;
 
-public class DeleteNestedProjectsHandler extends AbstractHandler {
+public class DeleteNestedProjectsHandler extends BaseSelectionOperationHandler {
+
+	public DeleteNestedProjectsHandler() {
+		super(false);
+	}
 
 	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		final IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
-		final ISelectionService selectionService = window.getSelectionService();
-		final IStructuredSelection selection = ((IStructuredSelection) selectionService.getSelection());
-		final IProject project = ((IProject) selection.getFirstElement());
-
-		ArrayList<IProject> projects = new ArrayList<>();
-		projects.add(project);
-		NestedProjectWalker.walkerFor(project).forEach(projects::add);
-
+	protected void executeOperation(List<IProject> projects, IProgressMonitor pm, IWorkbenchWindow window) {
 		final Selection strucSelection = new Selection(projects);
 		final DeleteResourceAction action = new DeleteResourceAction(window) {
 			@Override
@@ -35,7 +25,6 @@ public class DeleteNestedProjectsHandler extends AbstractHandler {
 			}
 		};
 		action.run();
-		return null;
 	}
 
 	private class Selection implements IStructuredSelection {
