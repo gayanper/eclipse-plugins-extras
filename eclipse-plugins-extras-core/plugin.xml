@@ -24,9 +24,14 @@
                   <iterate
                         ifEmpty="false"
                         operator="or">
-                     <instanceof
-                           value="org.eclipse.core.resources.IProject">
-                     </instanceof>
+                     <or>
+                        <instanceof
+                              value="org.eclipse.ui.IWorkingSet">
+                        </instanceof>
+                        <instanceof
+                              value="org.eclipse.core.resources.IProject">
+                        </instanceof>
+                     </or>
                   </iterate>
                </with>
             </visibleWhen>
@@ -37,10 +42,16 @@
                 style="push">
 	             <visibleWhen checkEnabled="false">
 	               <with variable="activeMenuSelection">
-	               	<iterate>
-	              		<test
-	                      property="org.eclipse.core.resources.open" value="true">
-	              		</test>	
+	               	<iterate
+                       ifEmpty="false">
+                 <and>
+                    <test
+                          property="org.eclipse.core.resources.open"
+                          value="true">
+                    </test>
+                    <instanceof
+                          value="org.eclipse.core.resources.IProject">
+                    </instanceof></and>
 	               	</iterate>
 	               </with>
 	                   
@@ -53,10 +64,16 @@
                 style="push">
 	             <visibleWhen checkEnabled="false">
 	               <with variable="activeMenuSelection">
-	               	<iterate>
-	              		<test
-	                      property="org.eclipse.core.resources.open" value="true">
-	              		</test>	
+	               	<iterate
+                       ifEmpty="false">
+                    <and>
+                       <instanceof
+                             value="org.eclipse.core.resources.IProject">
+                       </instanceof>
+                       <test
+                             property="org.eclipse.core.resources.open"
+                             value="true">
+                       </test></and>
 	               	</iterate>
 	               </with>
 	                   
@@ -69,14 +86,54 @@
                 style="push">
 	             <visibleWhen checkEnabled="false">
 	               <with variable="activeMenuSelection">
-	               	<iterate>
-	              		<test
-	                      property="org.eclipse.core.resources.open" value="false">
-	              		</test>	
+	               	<iterate
+                       ifEmpty="false">
+                    <and>
+                       <instanceof
+                             value="org.eclipse.core.resources.IProject">
+                       </instanceof>
+                       <test
+                             property="org.eclipse.core.resources.open"
+                             value="false">
+                       </test></and>
 	               	</iterate>
 	               </with>
 	             </visibleWhen>
     	     </command>
+          <command
+                commandId="eclipse-plugins-extras-core.projects.OpenAllWS"
+                id="eclipse-plugins-extras-core.projects.OpenAllWS"
+                label="Open All"
+                style="push">
+             <visibleWhen
+                   checkEnabled="false">
+                <with
+                      variable="activeMenuSelection">
+                   <iterate>
+                      <instanceof
+                            value="org.eclipse.ui.IWorkingSet">
+                      </instanceof>
+                   </iterate>
+                </with>
+             </visibleWhen>
+          </command>
+          <command
+                commandId="eclipse-plugins-extras-core.projects.CloseAllWS"
+                id="eclipse-plugins-extras-core.projects.CloseAllWS"
+                label="Close All"
+                style="push">
+             <visibleWhen
+                   checkEnabled="false">
+                <with
+                      variable="activeMenuSelection">
+                   <iterate>
+                      <instanceof
+                            value="org.eclipse.ui.IWorkingSet">
+                      </instanceof>
+                   </iterate>
+                </with>
+             </visibleWhen>
+          </command>
          </menu>
       </menuContribution>
    </extension>
@@ -96,6 +153,16 @@
             defaultHandler="org.gap.eclipse.plugins.extras.core.project.OpenNestedProjectsHandler"
             id="eclipse-plugins-extras-core.projects.OpenNested"
             name="Open Hierarchy">
+      </command>
+      <command
+            defaultHandler="org.gap.eclipse.plugins.extras.core.project.OpenNestedWorkingSetProjectsHandler"
+            id="eclipse-plugins-extras-core.projects.OpenAllWS"
+            name="Open All In WorkingSet">
+      </command>
+      <command
+            defaultHandler="org.gap.eclipse.plugins.extras.core.project.CloseNestedWorkingSetProjectsHandler"
+            id="eclipse-plugins-extras-core.projects.CloseAllWS"
+            name="Close All In WorkingSet">
       </command>
    </extension>
 
