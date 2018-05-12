@@ -38,7 +38,7 @@
 		<repository>
 			<id>p2</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/oxygen</url>
+			<url>http://download.eclipse.org/releases/photon</url>
 		</repository>
 	</repositories>
 </project>
