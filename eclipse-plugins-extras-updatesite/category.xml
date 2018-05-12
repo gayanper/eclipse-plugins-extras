@@ -6,5 +6,8 @@
    <feature url="features/org.gap.eclipse.plugins.extras.imports.feature_1.1.0.qualifier.jar" id="org.gap.eclipse.plugins.extras.imports.feature" version="1.1.0.qualifier">
       <category name="org.gap.eclipse.plugins.extras"/>
    </feature>
+   <feature url="features/org.gap.eclipse.plugins.extras.fixes.feature_1.1.0.qualifier.jar" id="org.gap.eclipse.plugins.extras.fixes.feature" version="1.1.0.qualifier">
+      <category name="org.gap.eclipse.plugins.extras"/>
+   </feature>
    <category-def name="org.gap.eclipse.plugins.extras" label="Gap Extras"/>
 </site>

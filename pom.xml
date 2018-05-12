@@ -13,6 +13,8 @@
 		<module>eclipse-plugins-extras-imports</module>
 		<module>eclipse-plugins-extras-updatesite</module>
 		<module>eclipse-plugins-extras-imports-feature</module>
+		<module>eclipse-plugins-extras-fixes</module>
+		<module>eclipse-plugins-extras-fixes-feature</module>
 	</modules>
 	<build>
 		<plugins>

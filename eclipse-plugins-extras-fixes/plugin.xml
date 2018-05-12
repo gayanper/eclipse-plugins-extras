@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.jdt.ui.quickAssistProcessors">
+      <quickAssistProcessor
+            class="org.gap.eclipse.plugins.extras.fixes.asist.StringFormatAsistProcessor"
+            id="eclipse-plugins-extras-fixes.quickAssistStringFormat"
+            name="String Format Asist Processor">
+      </quickAssistProcessor>
+   </extension>
+</plugin>
