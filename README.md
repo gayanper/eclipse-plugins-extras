@@ -10,6 +10,7 @@ Extra extensions for eclipse IDE to make it more usable.
 ### Project Quick Diff
 Support project base quick diff which will change the quick diff based on project's Team Provider.
 ![](./quick-diff.png)
+
 #### Supported Team Providers
 - Subclipse
 - EGit
@@ -21,7 +22,9 @@ Adds java static imports for
 - Java Collection
 - Java 8
 
-
+### Quick Assist
+- Support for `String.format`
+![](./qs-string-format.png)
 
 ## Update site
 Stable and Nightly update sites
