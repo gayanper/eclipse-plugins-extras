@@ -32,4 +32,8 @@ public class PluginActivator extends AbstractUIPlugin {
 	public void log(int level, String message, Throwable e) {
 		getLog().log(new Status(level, PluginActivator.PLUGIN_ID, message, e));
 	}
+	
+	public void error(String message, Throwable e) {
+		log(Status.ERROR, message, e);
+	}
 }

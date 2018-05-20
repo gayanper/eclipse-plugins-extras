@@ -160,5 +160,21 @@
             name="Close All In WorkingSet">
       </command>
    </extension>
-
+   <extension
+         point="org.eclipse.ui.popupMenus">
+         <viewerContribution
+               id="org.eclipse.debug.ui.variablesView.popupMenu"
+               targetID="org.eclipse.debug.ui.VariableView">
+               
+               <action
+                     class="org.gap.eclipse.plugins.extras.core.debug.DumpVariableAction"
+                     id="org.eclipse.debug.ui.debugview.popupMenu.copyVariablesToClipboard"
+                     label="Dump Variable"
+                     menubarPath="additions">
+                     <selection
+                           class="org.eclipse.debug.core.model.IDebugElement">
+                     </selection>
+               </action>
+         </viewerContribution>
+   </extension>
 </plugin>
