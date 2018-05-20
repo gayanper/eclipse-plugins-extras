@@ -26,6 +26,14 @@ Adds java static imports for
 - Support for `String.format`
 ![](./qs-string-format.png)
 
+### Debug Extras
+- Dump Variable
+
+    This feature adds support to dump a selected variable from debug variable view as a JSON file.
+
+    ![](./dump-variable.png)
+
+
 ## Update site
 Stable and Nightly update sites
 ### Stable
