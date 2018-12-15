@@ -8,5 +8,10 @@
             id="eclipse-plugins-extras-fixes.quickAssistStringFormat"
             name="String Format Asist Processor">
       </quickAssistProcessor>
+      <quickAssistProcessor
+            class="org.gap.eclipse.plugins.extras.fixes.asist.SearchStaticAssistProcessor"
+            id="eclipse-plugins-extras-fixes.quickAssistSearchStatic"
+            name="Search Static Code Asist Processor">
+      </quickAssistProcessor>
    </extension>
 </plugin>
