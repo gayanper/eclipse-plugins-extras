@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -14,7 +13,6 @@ import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.Signature;
 import org.eclipse.jdt.core.dom.AST;
@@ -71,7 +69,8 @@ public class SearchStaticAssistProcessor implements IQuickAssistProcessor {
 			List<IMember> staticMatches = new ArrayList<>();
 			try {
 				engine.search(SearchPattern.createOrPattern(fieldPattern, methodPattern),
-						new SearchParticipant[] { SearchEngine.getDefaultSearchParticipant() }, createSearchScope(),
+						new SearchParticipant[] { SearchEngine.getDefaultSearchParticipant() },
+						createSearchScope(context),
 						new SearchRequestor() {
 
 							@Override
@@ -164,9 +163,9 @@ public class SearchStaticAssistProcessor implements IQuickAssistProcessor {
 		return Optional.empty();
 	}
 
-	private static IJavaSearchScope createSearchScope() throws JavaModelException {
-		IJavaProject[] projects = JavaCore.create(ResourcesPlugin.getWorkspace().getRoot()).getJavaProjects();
-		return SearchEngine.createJavaSearchScope(projects, IJavaSearchScope.SOURCES);
+	private static IJavaSearchScope createSearchScope(IInvocationContext context) throws JavaModelException {
+		return SearchEngine.createJavaSearchScope(new IJavaProject[] { context.getCompilationUnit().getJavaProject() },
+				IJavaSearchScope.SOURCES);
 	}
 
 	private IJavaCompletionProposal createFieldProposal(IInvocationContext context, ASTNode astNode, IField field) {
