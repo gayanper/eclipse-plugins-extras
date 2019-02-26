@@ -40,7 +40,7 @@
 		<repository>
 			<id>p2</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/2018-9</url>
+			<url>http://download.eclipse.org/releases/2018-09</url>
 		</repository>
 	</repositories>
 </project>
