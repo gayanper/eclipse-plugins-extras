@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.workbench.texteditor.codeMiningProviders">
+      <codeMiningProvider
+            class="org.gap.eclipse.plugins.extras.codemining.recursive.RecursiveCodeMiningProvider"
+            id="eclipse-plugins-extras-codemining.recursive"
+            label="Recursive Method Mining">
+         <enabledWhen>
+            <and>
+               <with
+                     variable="editorInput">
+                  <or>
+                     <adapt
+                           type="org.eclipse.core.resources.IFile">
+                        <test
+                              property="org.eclipse.core.resources.contentTypeId"
+                              value="org.eclipse.jdt.core.javaSource">
+                        </test>
+                     </adapt>
+                  </or>
+               </with>
+            </and>
+         </enabledWhen>
+      </codeMiningProvider>
+   </extension>
+</plugin>
