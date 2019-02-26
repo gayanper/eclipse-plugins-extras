@@ -11,7 +11,6 @@ Require-Bundle: org.eclipse.ui.workbench,
  org.eclipse.jface.text;bundle-version="3.13.0",
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.swt,
- org.eclipse.jface,
- org.eclipse.jdt.core.manipulation
+ org.eclipse.jface
 Bundle-Activator: org.gap.eclipse.plugins.extras.codemining.PluginActivator
 Bundle-ActivationPolicy: lazy
