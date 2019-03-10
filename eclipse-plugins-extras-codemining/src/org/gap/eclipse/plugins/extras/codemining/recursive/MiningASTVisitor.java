@@ -47,7 +47,7 @@ class MiningASTVisitor extends ASTVisitor {
 		if(currentMethod.isPresent()) {
 			if (node.resolveMethodBinding().equals(currentMethod.get())) {
 				try {
-					minings.add(new RecursiveCodeMining(currentMethod.get(), document, provider));
+					minings.add(new RecursiveCodeMining(node, document, provider));
 				} catch (JavaModelException | BadLocationException e) {
 					PluginActivator.getDefault().error("Failed to mine recursive methods", e);
 				}
