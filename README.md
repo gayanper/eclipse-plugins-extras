@@ -34,5 +34,9 @@ Adds java static imports for
     ![](./dump-variable.png)
 
 
+### Code Mining
+- Recursion invocation mining
+![](./recursive-mining.png)
+
 ## Update site
 [https://dl.bintray.com/gayanper/p2/eclipse-plugins-extras](https://dl.bintray.com/gayanper/p2/eclipse-plugins-extras)
