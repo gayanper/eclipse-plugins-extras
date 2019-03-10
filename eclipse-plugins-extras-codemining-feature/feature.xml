@@ -17,7 +17,7 @@
    </license>
 
    <plugin
-         id="eclipse-plugins-extras-codemining"
+         id="org.gap.eclipse.plugins.extras.codemining"
          download-size="0"
          install-size="0"
          version="0.0.0"
